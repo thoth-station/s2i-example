@@ -13,7 +13,7 @@ pushd /tmp/src
   pip3 install git+https://github.com/thoth-station/thamos
   pip3 install git+https://github.com/thoth-station/invectio
 
-  echo ">>> Performing hardware dicovery..."
+  echo ">>> Performing hardware and software discovery..."
   thamos config --no-interactive
   echo ">>> Thoth's configuration file after hardware and software discovery:"
   cat .thoth.yaml
