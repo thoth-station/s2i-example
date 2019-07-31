@@ -1,8 +1,16 @@
-s2i-thoth-example
------------------
+Thoth's TensorFlow stack guidance example
+-----------------------------------------
 
-This is an example S2I application which uses Thoth's recommendations to
-recommend a TensorFlow stack.
+This is an example of OpenShift's s2i (source-to-image) application which uses
+Thoth's recommendations to recommend a TensorFlow stack for a specific hardware
+where TensorFlow application is supposed to be run together with software
+environment (base image).
+
+The application is showing a generic approach and how to integrate inside
+OpenShift's s2i build process. To have recommendations suited for your specific
+hardware, you need to configure the build to be done on specific hardware where
+the application is supposed to be run (specific node placement for build and
+application run which should match).
 
 Usage
 =====
@@ -28,8 +36,9 @@ on Thoth's backend configuration (typically you get back results for a
 TensorFlow stack in less than 2 minutes, but this varies based on load in Thoth
 deployment). Results are cached (3 hours by default) so next builds for same
 stack and same software/hardware configuration are faster (unless forced or any
-configuration change on client side). The cache is by default omitted as there
-is set `THAMOS_FORCE` configuration option in the ``openshift.yaml`` file.
+configuration change on client side). The cache is by default omitted in this
+example as there is set `THAMOS_FORCE` configuration option in the
+``openshift.yaml`` file.
 
 The adviser on Thoth's side is run in debug mode (see `THAMOS_DEBUG`
 configuration option in the ``openshift.yaml`` file).
@@ -50,11 +59,11 @@ To remove this application from OpenShift:
 Using Thoth in your s2i builds
 ==============================
 
-To enable Thoth in your s2i builds, copy content of `.s2i` directory present in
-this repository into your Git repository which is s2i enabled and remove
-``Pipfile.lock`` from your repository (locking is left on Thoth based on the
-recommendation engine). And thats it!
+To enable Thoth in your s2i builds, copy the content of `.s2i` directory
+present in this repository into your Git repository which is s2i enabled and
+remove ``Pipfile.lock`` from your repository (locking is left on Thoth based on
+the recommendation engine). And thats it!
 
-Follow instructions present in `<https://github.com/thoth-station/thamos> Thamos
-repository`_ for more info.
+Follow instructions present in `Thamos repository
+<https://github.com/thoth-station/thamos>`_ for more info.
 
