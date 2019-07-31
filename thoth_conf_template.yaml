@@ -7,6 +7,9 @@ runtime_environments:
     operating_system:
       name: 'fedora'
       version: '28'
+    hardware:
+      cpu_family: {cpu_family}
+      cpu_model: {cpu_model}
     python_version: '{python_version}'
     recommendation_type: STABLE
 
