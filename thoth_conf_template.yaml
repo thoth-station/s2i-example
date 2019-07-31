@@ -1,0 +1,12 @@
+host: '{THOTH_HOST}'
+tls_verify: false
+requirements_format: pipenv
+
+runtime_environments:
+  - name: '{os_name}:{os_version}'
+    operating_system:
+      name: 'fedora'
+      version: '28'
+    python_version: '{python_version}'
+    recommendation_type: STABLE
+

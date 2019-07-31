@@ -1,0 +1,27 @@
+#!/usr/bin/bash
+
+set -ex
+
+echo "Checking if there is a need to lock dependencies..."
+
+pushd /tmp/src
+
+[[ -f Pipfile && ! -f Pipfile.lock ]] && {
+  echo "Updating pip and installing Thamos..."
+  # Enable pip3.
+  pip install --upgrade pip
+  # Update needed for setup.cfg support in invectio.
+  pip3 install --upgrade setuptools
+  pip3 install git+https://github.com/thoth-station/thamos
+  pip3 install git+https://github.com/thoth-station/invectio
+
+  echo "Performing hardware dicovery..."
+  thamos config --no-interactive
+  echo "Thoth's configuration file after hardware and software discovery:"
+  cat .thoth.yaml
+  echo "Asking Thoth for advise..."
+  thamos advise
+}
+
+popd
+exec /usr/libexec/s2i/assemble
