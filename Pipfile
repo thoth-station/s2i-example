@@ -1,0 +1,13 @@
+[dev-packages]
+
+[packages]
+tensorflow = "*"
+
+[requires]
+python_version = "3.6"
+
+[[source]]
+name = "pypi-org"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
