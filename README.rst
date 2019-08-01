@@ -24,8 +24,8 @@ To deploy this application to OpenShift:
 
 The BuildConfig is using UBI8 Pythpn 3.6 to build the application.
 
-Once the templates get applied, a build is started. As there is no
-``Pipfile.lock`` present (no locked dependencies), Thoth is contacted (see
+Once the templates get applied, a build is started. As the build is
+configuration to ask Thoth for advises, Thoth is contacted (see
 ``thoth_conf_template.yaml`` configuration file for info on configuration
 options).
 
@@ -36,8 +36,8 @@ on Thoth's backend configuration (typically you get back results for a
 TensorFlow stack in less than 2 minutes, but this varies based on load in Thoth
 deployment). Results are cached (3 hours by default) so next builds for same
 stack and same software/hardware configuration are faster (unless forced or any
-configuration change on client side). The cache is by default omitted in this
-example as there is set `THAMOS_FORCE` configuration option in the
+configuration change on client side). The cache is by default used in this
+example as there is not set `THAMOS_FORCE` configuration option in the
 ``openshift.yaml`` file.
 
 The adviser on Thoth's side is run in debug mode (see `THAMOS_DEBUG`
@@ -62,7 +62,15 @@ Using Thoth in your s2i builds
 To enable Thoth in your s2i builds, copy the content of `.s2i` directory
 present in this repository into your Git repository which is s2i enabled and
 remove ``Pipfile.lock`` from your repository (locking is left on Thoth based on
-the recommendation engine). And thats it!
+the recommendation engine) or set ``THOTH_ADVISE`` environment variable to `1`
+in the build config.
+
+... And thats it!
+
+Configuration options of s2i asseble script:
+
+* ``THOTH_ADVISE`` - always use the recommended stack by Thoth (even if ``Pipfile.lock`` is present in the repo)
+* ``THOTH_DRY_RUN`` - submit stack to Thoth's recommendation engine but do not use the recommended ``Pipfile.lock`` file, use the ``Pipfile.lock`` file present in the repo instead
 
 Follow instructions present in `Thamos repository
 <https://github.com/thoth-station/thamos>`_ for more info.

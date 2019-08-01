@@ -6,7 +6,18 @@ echo "Checking if there is a need to lock dependencies..."
 
 pushd /tmp/src
 
-[[ -f Pipfile && ! -f Pipfile.lock ]] && {
+THOTH_DRY_RUN=${THOTH_DRY_RUN:-0}
+THOTH_ADVISE=${THOTH_ADVISE:-1}
+
+[[ ${THOTH_DRY_RUN} -ne 0 && ${THOTH_ADVISE} -ne 0 ]] && {
+  echo "Cannot use THOTH_DRY_RUN and THOTH_ADVISE configuration options at the same time" >&2
+  exit 1
+}
+
+# Make a backup of the Pipfile.lock present in the git root.
+[[ ${THOTH_DRY_RUN} -ne 0 && -f Pipfile.lock ]] && cp Pipfile.lock ../
+
+[[ ( -f Pipfile && ! -f Pipfile.lock ) || ${THOTH_ADVISE} -ne 0 ]] && {
   echo "Updating pip and installing Thamos..."
   # Enable pip3.
   pip install --upgrade pip
@@ -18,7 +29,14 @@ pushd /tmp/src
   echo ">>> Thoth's configuration file after hardware and software discovery:"
   cat .thoth.yaml
   echo ">>> Asking Thoth for advise..."
-  thamos advise
+  thamos advise || [[ ${THOTH_DRY_RUN} -ne 0 ]]
+}
+
+# Restore previous Pipfile.lock, do not use the original one on dry run.
+[[ ${THOTH_DRY_RUN} -ne 0 ]] && {
+    echo "Restoring previous Pipfile.lock as THOTH_DRY_RUN was set" >&2
+    cat Pipfile.lock || true
+    [[ -f ../Pipfile.lock ]] && cp ../Pipfile.lock .
 }
 
 popd
