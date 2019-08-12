@@ -38,7 +38,7 @@ THAMOS_NO_PROGRESSBAR=${THAMOS_NO_PROGRESSBAR:-1}
   echo ">>> Thoth's configuration file after hardware and software discovery:"
   cat .thoth.yaml
   echo ">>> Asking Thoth for advise..."
-  if [[ ${THOTH_DRY_RUN} -ne 0 ]]; then
+  if [[ ${THOTH_DRY_RUN} -eq 0 ]]; then
       thamos advise
   else
       thamos advise --no-wait
