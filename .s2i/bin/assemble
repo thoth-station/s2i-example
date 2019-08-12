@@ -13,11 +13,6 @@ export THOTH_HOST=${THOTH_HOST:-khemenu.thoth-station.ninja}
 # Disable progressbar for thamos.
 export THAMOS_NO_PROGRESSBAR=${THAMOS_NO_PROGRESSBAR:-1}
 
-[[ ${THOTH_DRY_RUN} -ne 0 && ${THOTH_ADVISE} -ne 0 ]] && {
-  echo "Cannot use THOTH_DRY_RUN and THOTH_ADVISE configuration options at the same time" >&2
-  exit 1
-}
-
 # Make a backup of the Pipfile.lock present in the git root.
 [[ ${THOTH_DRY_RUN} -ne 0 && -f Pipfile.lock ]] && cp Pipfile.lock ../
 
