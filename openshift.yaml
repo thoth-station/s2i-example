@@ -93,6 +93,9 @@ objects:
             # performed by Thamos.
             - name: "THOTH_HOST"
               value: "${THOTH_HOST}"
+            # Use latest sources of Thamos and Invectio from Git master.
+            - name: "THOTH_FROM_MASTER"
+              value: "0"
       triggers:
         - type: ImageChange
           imageChange: {}
