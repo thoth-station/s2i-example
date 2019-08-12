@@ -61,14 +61,11 @@ objects:
               value: "1"
             # Force use Thoth service - do not use Pipfile.lock present in the Git repo.
             - name: "THOTH_ADVISE"
-              value: "1"
+              value: "0"
             # Set to 1 if you would like to submit stack to Thoth but not use
             # the recommended stack - Pipfile.lock from the Git repo will be
             # used.
             - name: "THOTH_DRY_RUN"
-              value: "0"
-            # Disable progressbar for thamos.
-            - name: "THAMOS_NO_PROGRESSBAR"
               value: "1"
             # .thoth.yaml file is generated from template file
             # thoth_conf_template.yaml
