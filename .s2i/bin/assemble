@@ -32,7 +32,11 @@ THAMOS_NO_PROGRESSBAR=${THAMOS_NO_PROGRESSBAR:-1}
   echo ">>> Thoth's configuration file after hardware and software discovery:"
   cat .thoth.yaml
   echo ">>> Asking Thoth for advise..."
-  thamos advise || [[ ${THOTH_DRY_RUN} -ne 0 ]]
+  if [[ ${THOTH_DRY_RUN} -ne 0 ]]; then
+      thamos advise
+  else
+      thamos advise --no-wait
+  fi
 }
 
 # Restore previous Pipfile.lock, do not use the original one on dry run.
