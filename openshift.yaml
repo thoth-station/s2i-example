@@ -54,7 +54,7 @@ objects:
         sourceStrategy:
           from:
             kind: ImageStreamTag
-            name: "s2i-thoth-python-36:latest"
+            name: "s2i-thoth-ubi8-py36:latest"
           env:
             # Enable Pipenv in OpenShift's s2i.
             - name: "ENABLE_PIPENV"
@@ -153,12 +153,12 @@ objects:
     metadata:
       labels:
         app: "s2i-example-tensorflow"
-      name: "s2i-thoth-python-36"
+      name: "s2i-thoth-ubi8-py36"
     spec:
       tags:
         - name: "latest"
           from:
             kind: "DockerImage"
-            name: "registry.access.redhat.com/ubi8/python-36"
+            name: "quay.io/thoth-station/s2i-thoth-ubi8-py36"
           referencePolicy:
             type: "Source"
