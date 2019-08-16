@@ -59,19 +59,14 @@ To remove this application from OpenShift:
 Using Thoth in your s2i builds
 ==============================
 
-To enable Thoth in your s2i builds, copy the content of `.s2i` directory
-present in this repository into your Git repository which is s2i enabled and
-remove ``Pipfile.lock`` from your repository (locking is left on Thoth based on
-the recommendation engine) or set ``THOTH_ADVISE`` environment variable to `1`
-in the build config.
-
-... And thats it!
-
-Configuration options of s2i asseble script:
-
-* ``THOTH_ADVISE`` - always use the recommended stack by Thoth (even if ``Pipfile.lock`` is present in the repo)
-* ``THOTH_DRY_RUN`` - submit stack to Thoth's recommendation engine but do not use the recommended ``Pipfile.lock`` file, use the ``Pipfile.lock`` file present in the repo instead
+See `thoth-station/s2i-thoth <https://github.com/thoth-station/s2i-thoth>`_ for
+more info and a list of Thoth's base images with configuration options you can
+supply.
 
 Follow instructions present in `Thamos repository
-<https://github.com/thoth-station/thamos>`_ for more info.
+<https://github.com/thoth-station/thamos#using-thoth-and-thamos-in-openshifts-s2i>`_
+for more info on how to configure Thoth's client - "Thamos".
+
+See also build config present in this repo to see configuration options
+supplied to this s2i based Python application.
 
