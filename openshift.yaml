@@ -79,7 +79,7 @@ objects:
             # Do not use cached results, always force analysis on Thoth's side
             # if set to 1.
             - name: "THAMOS_FORCE"
-              value: "0"
+              value: "1"
             # Run thamos in verbose mode to show what's going on.
             - name: "THAMOS_VERBOSE"
               value: "1"
