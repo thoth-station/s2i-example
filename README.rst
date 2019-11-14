@@ -1,16 +1,25 @@
-Thoth's TensorFlow stack guidance example
------------------------------------------
+Thoth's stack guidance example in OpenShift s2i
+-----------------------------------------------
 
 This is an example of OpenShift's s2i (source-to-image) application which uses
-Thoth's recommendations to recommend a TensorFlow stack for a specific hardware
-where TensorFlow application is supposed to be run together with software
-environment (base image).
+Thoth's recommendations to recommend Python packages.
 
-The application is showing a generic approach and how to integrate inside
-OpenShift's s2i build process. To have recommendations suited for your specific
-hardware, you need to configure the build to be done on specific hardware where
-the application is supposed to be run (specific node placement for build and
-application run which should match).
+.. code-block:: console
+
+    _____________
+  < Hello, Thoth! >
+    =============
+                    \
+                     \
+                      \
+                       .--.
+                      |o_o |
+                      |:_/ |
+                     //   \ \
+                    (|     | )
+                   /'\_   _/`\
+                   \___)=(___/
+
 
 Usage
 =====
@@ -32,19 +41,17 @@ options).
 Thoth computes recommendations and gives back a ``Pipfile.lock`` with
 additional guidance on software stack (see build logs). Note that computing
 recommendations takes some time, there is assigned a certain amount of CPU based
-on Thoth's backend configuration (typically you get back results for a
-TensorFlow stack in less than 2 minutes, but this varies based on load in Thoth
-deployment). Results are cached (3 hours by default) so next builds for same
+on Thoth's backend configuration. Results are cached (3 hours by default) so next builds for same
 stack and same software/hardware configuration are faster (unless forced or any
 configuration change on client side). The cache is by default used in this
-example as there is not set `THAMOS_FORCE` configuration option in the
+example as there is not set ``THAMOS_FORCE`` configuration option in the
 ``openshift.yaml`` file.
 
-The adviser on Thoth's side is run in debug mode (see `THAMOS_DEBUG`
+The adviser on Thoth's side is run in debug mode (see ``THAMOS_DEBUG``
 configuration option in the ``openshift.yaml`` file).
 
 You can configure which Thoth deployment should be contacted by setting
-`THOTH_HOST` environment variable which is used during expansion of
+``THOTH_HOST`` environment variable which is used during expansion of
 ``.thoth.yaml`` file from ``thoth_conf_template.yaml`` template file. See also
 other parts which get expanded based on software and hardware detection
 performed during the build process.
