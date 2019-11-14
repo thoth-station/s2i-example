@@ -20,7 +20,7 @@ To deploy this application to OpenShift:
 .. code-block:: console
 
   oc project <YOUR-PROJECT-NAME>
-  oc process -f https://raw.githubusercontent.com/thoth-station/s2i-example-tensorflow/master/openshift.yaml | oc apply -f -
+  oc process -f https://raw.githubusercontent.com/thoth-station/s2i-example-tensorflow/hello-thoth/openshift.yaml | oc apply -f -
 
 The BuildConfig is using UBI8 Pythpn 3.6 to build the application.
 
