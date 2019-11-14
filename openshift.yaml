@@ -66,7 +66,7 @@ objects:
             # the recommended stack - Pipfile.lock from the Git repo will be
             # used.
             - name: "THOTH_DRY_RUN"
-              value: "0"
+              value: "1"
             # .thoth.yaml file is generated from template file
             # thoth_conf_template.yaml
             - name: "THAMOS_CONFIG_TEMPLATE"
