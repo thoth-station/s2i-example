@@ -88,7 +88,7 @@ objects:
             # Thoth's user API (the analysis id gets printed into the console
             # during the build process in OpenShift).
             - name: "THAMOS_DEBUG"
-              value: "1"
+              value: "0"
             # Thoth deployment to be used - pass just host, API discovery is
             # performed by Thamos.
             - name: "THOTH_HOST"
