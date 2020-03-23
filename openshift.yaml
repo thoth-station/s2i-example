@@ -21,7 +21,7 @@ parameters:
     name: "THOTH_HOST"
     required: true
     # khemenu points to "prod" deployment.
-    value: "khemenu.thoth-station.ninja"
+    value: "test.thoth-station.ninja"
 
 objects:
   - kind: BuildConfig
