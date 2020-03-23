@@ -48,7 +48,7 @@ objects:
         type: Git
         git:
           uri: "https://github.com/thoth-station/s2i-example-tensorflow"
-          ref: "master"
+          ref: "hello-thoth"
       strategy:
         type: Source
         sourceStrategy:
@@ -66,7 +66,7 @@ objects:
             # the recommended stack - Pipfile.lock from the Git repo will be
             # used.
             - name: "THOTH_DRY_RUN"
-              value: "1"
+              value: "0"
             # .thoth.yaml file is generated from template file
             # thoth_conf_template.yaml
             - name: "THAMOS_CONFIG_TEMPLATE"
@@ -79,7 +79,7 @@ objects:
             # Do not use cached results, always force analysis on Thoth's side
             # if set to 1.
             - name: "THAMOS_FORCE"
-              value: "0"
+              value: "1"
             # Run thamos in verbose mode to show what's going on.
             - name: "THAMOS_VERBOSE"
               value: "1"
@@ -88,7 +88,7 @@ objects:
             # Thoth's user API (the analysis id gets printed into the console
             # during the build process in OpenShift).
             - name: "THAMOS_DEBUG"
-              value: "1"
+              value: "0"
             # Thoth deployment to be used - pass just host, API discovery is
             # performed by Thamos.
             - name: "THOTH_HOST"
