@@ -61,7 +61,7 @@ objects:
               value: "1"
             # Force use Thoth service.
             - name: "THOTH_ADVISE"
-              value: "1"
+              value: "0"
             # Set to 1 if you would like to submit stack to Thoth but not use
             # the recommended stack - Pipfile.lock from the Git repo will be
             # used.
