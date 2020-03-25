@@ -6,7 +6,7 @@ runtime_environments:
   - name: '{os_name}:{os_version}'
     operating_system:
       name: 'rhel'
-      version: '8.0'
+      version: '8'
     hardware:
       cpu_family: {cpu_family}
       cpu_model: {cpu_model}
