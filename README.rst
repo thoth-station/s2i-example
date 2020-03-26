@@ -66,7 +66,7 @@ To remove this application from OpenShift:
 
 .. code-block:: console
 
-  oc delete all --selector 'app=s2i-example-tensorflow'
+  oc delete all --selector 'app=s2i-example-log'
 
 
 Using Thoth in your s2i builds
