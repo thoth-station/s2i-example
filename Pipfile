@@ -6,7 +6,7 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-cowsay = ">=2.0.3"
+daiquiri = "*"
 
 [requires]
 python_version = "3.6"
