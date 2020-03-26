@@ -11,5 +11,5 @@ runtime_environments:
       cpu_family: {cpu_family}
       cpu_model: {cpu_model}
     python_version: '{python_version}'
-    recommendation_type: STABLE
+    recommendation_type: LATEST
 
