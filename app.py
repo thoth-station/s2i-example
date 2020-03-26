@@ -5,11 +5,11 @@ import logging
 import daiquiri
 
 def main():
-    """Say hello to Thoth."""
+    """Log hello thoth every 10 seconds."""
     daiquiri.setup(level=logging.INFO)
     while True:
         logger = daiquiri.getLogger(__name__)
-        logger.info("It works and log to stderr by default with color! Every 10 seconds ;)")
+        logger.info("Hello Thoth ;)")
         time.sleep(10)
 
 
