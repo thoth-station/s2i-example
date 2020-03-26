@@ -20,7 +20,6 @@ parameters:
     displayName: "Environment"
     name: "THOTH_HOST"
     required: true
-    # khemenu points to "prod" deployment.
     value: "api.moc.thoth-station.ninja"
 
 objects:
@@ -48,7 +47,7 @@ objects:
         type: Git
         git:
           uri: "https://github.com/saisankargochhayat/s2i-example-tensorflow"
-          ref: "hello-thoth"
+          ref: "log-thoth"
       strategy:
         type: Source
         sourceStrategy:
