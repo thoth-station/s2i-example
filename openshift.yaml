@@ -46,7 +46,7 @@ objects:
       source:
         type: Git
         git:
-          uri: "https://github.com/saisankargochhayat/s2i-example-tensorflow"
+          uri: "https://github.com/thoth-station/s2i-example-tensorflow"
           ref: "log-thoth"
       strategy:
         type: Source
@@ -95,7 +95,7 @@ objects:
             # Use latest sources of Thamos and Invectio from Git master.
             - name: "THOTH_FROM_MASTER"
               value: "0"
-            # Use original Piplock if the thoth analysis fails. 
+            # Use original Pipfile.lock if the thoth analysis fails. 
             - name: "THOTH_ERROR_FALLBACK"
               value: "1"
       triggers:
