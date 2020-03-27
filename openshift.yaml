@@ -60,7 +60,7 @@ objects:
               value: "1"
             # Force use Thoth service.
             - name: "THOTH_ADVISE"
-              value: "0"
+              value: "1"
             # Set to 1 if you would like to submit stack to Thoth but not use
             # the recommended stack - Pipfile.lock from the Git repo will be
             # used.
@@ -95,6 +95,9 @@ objects:
             # Use latest sources of Thamos and Invectio from Git master.
             - name: "THOTH_FROM_MASTER"
               value: "0"
+            # Use original Piplock if the thoth analysis fails. 
+            - name: "THOTH_ERROR_FALLBACK"
+              value: "1"
       triggers:
         - type: ImageChange
           imageChange: {}
