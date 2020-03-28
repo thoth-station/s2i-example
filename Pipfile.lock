@@ -21,7 +21,7 @@
                 "sha256:0d5bf9c5719fbca4928dc2a882c165cd2b5c81be28f7f1626ced04c1c6b4aae2",
                 "sha256:236183ba51f35f4ae0e23fd20119d0fa082995c08d77bd562dbc00ea8f504bf6"
             ],
-            "index": "pypi",
+            "index": "pypi-org",
             "version": "==2.1.1"
         },
         "python-json-logger": {
