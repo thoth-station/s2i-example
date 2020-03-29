@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
 
-import cowsay
 import time
+import logging
+import daiquiri
 
 def main():
-    """Say hello to Thoth."""
+    """Log hello thoth every 10 seconds."""
+    daiquiri.setup(level=logging.INFO)
     while True:
-        for character in cowsay.chars:
-            character("Hello, Thoth!")
-            time.sleep(5)
+        logger = daiquiri.getLogger(__name__)
+        logger.info("Hello Thoth ;)")
+        time.sleep(10)
 
 
 __name__ == "__main__" and main()

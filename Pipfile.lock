@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "0d93dec45a89cfff42514b3ad980aeab9265c724c2d51e8d27ffd8f0cf6800d4"
+            "sha256": "2f354eaddecf43134b8d5a1609be109224aa91a1bfa02eb661d752046ed64bac"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -9,20 +9,26 @@
         },
         "sources": [
             {
-                "name": "pypi",
+                "name": "pypi-org",
                 "url": "https://pypi.org/simple",
                 "verify_ssl": true
             }
         ]
     },
     "default": {
-        "cowsay": {
+        "daiquiri": {
             "hashes": [
-                "sha256:7ec3ec1bb085cbb788b0de1e762941b4469faf41c6cdbec08a7ac072a7d1d6eb",
-                "sha256:debde99bae664bd91487613223c1cb291170d8703bf7d524c3a4877ad37b4dad"
+                "sha256:0d5bf9c5719fbca4928dc2a882c165cd2b5c81be28f7f1626ced04c1c6b4aae2",
+                "sha256:236183ba51f35f4ae0e23fd20119d0fa082995c08d77bd562dbc00ea8f504bf6"
             ],
-            "index": "pypi",
-            "version": "==2.0.3"
+            "index": "pypi-org",
+            "version": "==2.1.1"
+        },
+        "python-json-logger": {
+            "hashes": [
+                "sha256:b7a31162f2a01965a5efb94453ce69230ed208468b0bbc7NOTAREALSHA"
+            ],
+            "version": "==0.1.11"
         }
     },
     "develop": {}

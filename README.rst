@@ -7,7 +7,7 @@ Thoth's recommendations to recommend Python packages.
 .. code-block:: console
 
     _____________
-  < Hello, Thoth! >
+  < Log, Thoth! >
     =============
                     \
                      \
@@ -29,7 +29,13 @@ To deploy this application to OpenShift:
 .. code-block:: console
 
   oc project <YOUR-PROJECT-NAME>
-  oc process -f https://raw.githubusercontent.com/thoth-station/s2i-example-tensorflow/hello-thoth/openshift.yaml | oc apply -f -
+  oc process -f https://raw.githubusercontent.com/thoth-station/s2i-example-tensorflow/log-thoth/openshift.yaml | oc apply -f -
+
+If you are trying the kata-coda tutorial and have already forked the repo - 
+.. code-block:: console
+
+  oc project <YOUR-PROJECT-NAME>
+  oc process -f https://raw.githubusercontent.com/<your-github-username>/s2i-example-tensorflow/log-thoth/openshift.yaml | oc apply -f -
 
 The BuildConfig is using UBI8 Pythpn 3.6 to build the application.
 
@@ -60,7 +66,7 @@ To remove this application from OpenShift:
 
 .. code-block:: console
 
-  oc delete all --selector 'app=s2i-example-tensorflow'
+  oc delete all --selector 'app=s2i-example-log'
 
 
 Using Thoth in your s2i builds
