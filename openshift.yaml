@@ -20,8 +20,8 @@ parameters:
     displayName: "Environment"
     name: "THOTH_HOST"
     required: true
-    # khemenu points to "prod" deployment.
-    value: "test.thoth-station.ninja"
+    # api.moc points to "prod" deployment.
+    value: "api.moc.thoth-station.ninja"
 
 objects:
   - kind: BuildConfig
