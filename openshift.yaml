@@ -4,7 +4,7 @@ metadata:
   name: s2i-example-log
   annotations:
     openshift.io/display-name: "Thoth S2I Example Logger"
-    openshift.io/documentation-url: "https://github.com/thoth-station/s2i-example-tensorflow"
+    openshift.io/documentation-url: "https://github.com/thoth-station/s2i-example"
     openshift.io/provider-display-name: "Red Hat, Inc."
     description: |-
       An example application integrating OpenShift's s2i with Thoth's recommendation engine for Python stack.
@@ -20,7 +20,7 @@ parameters:
     displayName: "Environment"
     name: "THOTH_HOST"
     required: true
-    value: "api.moc.thoth-station.ninja"
+    value: "khemenu.thoth-station.ninja"
 
 objects:
   - kind: BuildConfig
@@ -47,7 +47,7 @@ objects:
         type: Git
         git:
           uri: "https://github.com/thoth-station/s2i-example"
-          ref: "log-thoth"
+          ref: "log-thoth-broken"
       strategy:
         type: Source
         sourceStrategy:
@@ -60,6 +60,9 @@ objects:
               value: "1"
             # Force use Thoth service.
             - name: "THOTH_ADVISE"
+              value: "0"
+            # Force use Thoth Provenance i.e. verify stack provenance
+            - name: "THOTH_PROVENANCE_CHECK"
               value: "1"
             # Set to 1 if you would like to submit stack to Thoth but not use
             # the recommended stack - Pipfile.lock from the Git repo will be
@@ -97,7 +100,7 @@ objects:
               value: "0"
             # Use original Pipfile.lock if the thoth analysis fails. 
             - name: "THOTH_ERROR_FALLBACK"
-              value: "1"
+              value: "0"
       triggers:
         - type: ImageChange
           imageChange: {}
