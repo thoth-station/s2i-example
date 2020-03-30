@@ -96,6 +96,12 @@ objects:
             # Use latest sources of Thamos and Invectio from Git master.
             - name: "THOTH_FROM_MASTER"
               value: "0"
+            # Use original Pipfile.lock if the thoth analysis fails. 
+            - name: "THOTH_ERROR_FALLBACK"
+              value: "0"
+            # Consider also development dependencies stated in the lock file.
+            - name: "THAMOS_DEV"
+              value: "0"
       triggers:
         - type: ImageChange
           imageChange: {}
