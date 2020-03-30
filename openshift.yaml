@@ -4,7 +4,7 @@ metadata:
   name: s2i-example-log
   annotations:
     openshift.io/display-name: "Thoth S2I Example Logger"
-    openshift.io/documentation-url: "https://github.com/thoth-station/s2i-example-tensorflow"
+    openshift.io/documentation-url: "https://github.com/thoth-station/s2i-example"
     openshift.io/provider-display-name: "Red Hat, Inc."
     description: |-
       An example application integrating OpenShift's s2i with Thoth's recommendation engine for Python stack.
@@ -46,7 +46,7 @@ objects:
       source:
         type: Git
         git:
-          uri: "https://github.com/thoth-station/s2i-example-tensorflow"
+          uri: "https://github.com/thoth-station/s2i-example"
           ref: "log-thoth"
       strategy:
         type: Source
