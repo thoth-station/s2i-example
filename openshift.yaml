@@ -20,7 +20,7 @@ parameters:
     displayName: "Environment"
     name: "THOTH_HOST"
     required: true
-    value: "khemenu.thoth-station.ninja"
+    value: "api.moc.thoth-station.ninja"
 
 objects:
   - kind: BuildConfig
