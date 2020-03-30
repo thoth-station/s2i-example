@@ -47,7 +47,7 @@ objects:
       source:
         type: Git
         git:
-          uri: "https://github.com/thoth-station/s2i-example-tensorflow"
+          uri: "https://github.com/thoth-station/s2i-example"
           ref: "hello-thoth"
       strategy:
         type: Source
