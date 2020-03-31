@@ -1,19 +1,19 @@
 apiVersion: v1
 kind: Template
 metadata:
-  name: s2i-example-tensorflow
+  name: s2i-example-log
   annotations:
-    openshift.io/display-name: "Thoth S2I Example TensorFlow"
-    openshift.io/documentation-url: "https://github.com/thoth-station/s2i-example-tensorflow"
+    openshift.io/display-name: "Thoth S2I Example Logger"
+    openshift.io/documentation-url: "https://github.com/thoth-station/s2i-example"
     openshift.io/provider-display-name: "Red Hat, Inc."
     description: |-
-      An example application integrating OpenShift's s2i with Thoth's recommendation engine for TensorFlow stack.
+      An example application integrating OpenShift's s2i with Thoth's recommendation engine for Python stack.
     version: 0.2.0
     tags: thoth,openshift,s2i,python
     iconClass: icon-python
   labels:
-    template: s2i-example-tensorflow
-    app: "s2i-example-tensorflow"
+    template: s2i-example-log
+    app: "s2i-example-log"
 
 parameters:
   - description: "Thoth Environment to use for retrieving advices."
@@ -27,9 +27,9 @@ objects:
   - kind: BuildConfig
     apiVersion: v1
     metadata:
-      name: "s2i-example-tensorflow"
+      name: "s2i-example-log"
       labels:
-        app: "s2i-example-tensorflow"
+        app: "s2i-example-log"
     spec:
       successfulBuildsHistoryLimit: 1
       failedBuildsHistoryLimit: 2
@@ -43,12 +43,12 @@ objects:
       output:
         to:
           kind: ImageStreamTag
-          name: "s2i-example-tensorflow:latest"
+          name: "s2i-example-log:latest"
       source:
         type: Git
         git:
           uri: "https://github.com/thoth-station/s2i-example"
-          ref: "master"
+          ref: "log-thoth-provenance"
       strategy:
         type: Source
         sourceStrategy:
@@ -61,12 +61,15 @@ objects:
               value: "1"
             # Force use Thoth service.
             - name: "THOTH_ADVISE"
+              value: "0"
+            # Force use Thoth Provenance i.e. verify stack provenance
+            - name: "THOTH_PROVENANCE_CHECK"
               value: "1"
             # Set to 1 if you would like to submit stack to Thoth but not use
             # the recommended stack - Pipfile.lock from the Git repo will be
             # used.
             - name: "THOTH_DRY_RUN"
-              value: "1"
+              value: "0"
             # .thoth.yaml file is generated from template file
             # thoth_conf_template.yaml
             - name: "THAMOS_CONFIG_TEMPLATE"
@@ -79,7 +82,7 @@ objects:
             # Do not use cached results, always force analysis on Thoth's side
             # if set to 1.
             - name: "THAMOS_FORCE"
-              value: "0"
+              value: "1"
             # Run thamos in verbose mode to show what's going on.
             - name: "THAMOS_VERBOSE"
               value: "1"
@@ -88,7 +91,7 @@ objects:
             # Thoth's user API (the analysis id gets printed into the console
             # during the build process in OpenShift).
             - name: "THAMOS_DEBUG"
-              value: "1"
+              value: "0"
             # Thoth deployment to be used - pass just host, API discovery is
             # performed by Thamos.
             - name: "THOTH_HOST"
@@ -96,6 +99,9 @@ objects:
             # Use latest sources of Thamos and Invectio from Git master.
             - name: "THOTH_FROM_MASTER"
               value: "0"
+            # Use original Pipfile.lock if the thoth analysis fails. 
+            - name: "THOTH_ERROR_FALLBACK"
+              value: "1"
             # Consider also development dependencies stated in the lock file.
             - name: "THAMOS_DEV"
               value: "0"
@@ -107,8 +113,8 @@ objects:
     apiVersion: v1
     metadata:
       labels:
-        app: "s2i-example-tensorflow"
-      name: "s2i-example-tensorflow"
+        app: "s2i-example-log"
+      name: "s2i-example-log"
     spec:
       replicas: 1
       selector:
@@ -119,7 +125,7 @@ objects:
             service: "s2i-example-thoth"
         spec:
           containers:
-            - name: "s2i-example-tensorflow"
+            - name: "s2i-example-log"
               ports:
                 - containerPort: 8080
                   protocol: TCP
@@ -137,25 +143,25 @@ objects:
           imageChangeParams:
             automatic: true
             containerNames:
-              - "s2i-example-tensorflow"
+              - "s2i-example-log"
             from:
               kind: ImageStreamTag
-              name: "s2i-example-tensorflow:latest"
+              name: "s2i-example-log:latest"
 
   - apiVersion: "image.openshift.io/v1"
     kind: ImageStream
     metadata:
       labels:
-        app: "s2i-example-tensorflow"
-      name: "s2i-example-tensorflow"
+        app: "s2i-example-log"
+      name: "s2i-example-log"
     spec:
-      name: "s2i-example-tensorflow"
+      name: "s2i-example-log"
 
   - apiVersion: "image.openshift.io/v1"
     kind: ImageStream
     metadata:
       labels:
-        app: "s2i-example-tensorflow"
+        app: "s2i-example-log"
       name: "s2i-thoth-ubi8-py36"
     spec:
       tags:
