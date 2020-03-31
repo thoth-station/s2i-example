@@ -61,6 +61,9 @@ objects:
             # Force use Thoth service.
             - name: "THOTH_ADVISE"
               value: "1"
+            # Force use Thoth Provenance i.e. verify stack provenance
+            - name: "THOTH_PROVENANCE_CHECK"
+              value: "0"
             # Set to 1 if you would like to submit stack to Thoth but not use
             # the recommended stack - Pipfile.lock from the Git repo will be
             # used.
