@@ -20,6 +20,7 @@ parameters:
     displayName: "Environment"
     name: "THOTH_HOST"
     required: true
+    # api.moc points to "prod" deployment.
     value: "api.moc.thoth-station.ninja"
 
 objects:
