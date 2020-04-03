@@ -81,7 +81,7 @@ The pre-configured template for Thamos CLI is available in the
 
   cat .thoth.yaml
 
-To generate Thoth's configuration file out of the template run the
+Alternatively, to generate Thoth's configuration file out of the template run the
 following command:
 
 .. code-block:: console
@@ -96,7 +96,7 @@ Now you are ready to ask for advises:
   thamos advise
 
 This might take some time. Once Thoth recommends you the application stack to
-be used, run the application, create a Python environment and install
+be used for running the application, create a Python environment and install
 requirements into it:
 
 .. code-block:: console
@@ -114,7 +114,7 @@ activated):
 
   python3 ./app.py
 
-To browse Thoth's logs during adviser run:
+To browse Thoth's logs during or after the adviser run:
 
 .. code-block:: console
 
