@@ -1,2 +1,2 @@
 # To demonstrate a security vulnerability:
-tensorflow<1.10
+tensorflow<1.9
