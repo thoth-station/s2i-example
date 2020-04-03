@@ -1,15 +1,14 @@
-host: '{THOTH_HOST}'
-tls_verify: false
-requirements_format: pipenv
+host: 'api.moc.thoth-station.ninja'
+tls_verify: true
+requirements_format: pip
 
 runtime_environments:
   - name: '{os_name}:{os_version}'
     operating_system:
-      name: 'fedora'
-      version: '28'
+      name: '{os_name}'
+      version: '{os_name}'
     hardware:
       cpu_family: {cpu_family}
       cpu_model: {cpu_model}
     python_version: '{python_version}'
-    recommendation_type: STABLE
-
+    recommendation_type: stable
