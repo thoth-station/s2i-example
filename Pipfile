@@ -1,13 +1,12 @@
-[dev-packages]
-
-[packages]
-tensorflow = "*"
-
-[requires]
-python_version = "3.6"
-
 [[source]]
-name = "pypi-org"
 url = "https://pypi.org/simple"
 verify_ssl = true
+name = "pypi-org"
 
+[packages]
+tensorflow = "<2"
+
+[dev-packages]
+
+[requires]
+python_version = "3.7"
