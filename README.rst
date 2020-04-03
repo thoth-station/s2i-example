@@ -113,3 +113,9 @@ activated):
 .. code-block:: console
 
   python3 ./app.py
+
+To browse Thoth's logs during adviser run:
+
+.. code-block:: console
+
+  thamos log
