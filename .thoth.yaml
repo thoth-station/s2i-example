@@ -1,0 +1,15 @@
+host: 'api.moc.thoth-station.ninja'
+tls_verify: true
+requirements_format: pip
+
+runtime_environments:
+  - name: 'ubi:8'
+    operating_system:
+      name: 'ubi'
+      version: '8'
+    hardware:
+      cpu_family: 6
+      cpu_model: 142
+    python_version: '3.6'
+    recommendation_type: stable
+
