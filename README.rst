@@ -70,7 +70,7 @@ install Thamos CLI:
 
 .. code-block:: console
 
-  git clone https://github.com/thoth-station/s2i-thoth.git && cd s2i-thoth
+  git clone https://github.com/thoth-station/s2i-example.git && cd s2i-example
   pip3 install thamos
   thamos --help
 
