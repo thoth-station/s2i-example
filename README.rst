@@ -75,12 +75,18 @@ install Thamos CLI:
   thamos --help
 
 The pre-configured template for Thamos CLI is available in the
-``thoth_conf_template.yaml`` file. To generate Thoth's configuration file out
-of the template run the following command:
+``.thoth.yaml`` file:
 
 .. code-block:: console
 
-  thamos config --no-interactive --template thoth_conf_template_cli.yaml
+  cat .thoth.yaml
+
+To generate Thoth's configuration file out of the template run the
+following command:
+
+.. code-block:: console
+
+  thamos config --no-interactive --template thoth_conf_template.yaml
   cat .thoth.yaml  # to browse the content of the config file
 
 Now you are ready to ask for advises:
@@ -95,7 +101,9 @@ requirements into it:
 
 .. code-block:: console
 
-  pip3 -m venv venv/
+  cat requirements.txt  # check requirements with digests
+  cat requirements.in   # check direct dependencies
+  python3 -m venv venv/
   source venv/bin/activate
   pip3 install -r requirements.txt
 
