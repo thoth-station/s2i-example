@@ -8,6 +8,9 @@ recommend a TensorFlow stack for a specific hardware. The application is
 showing a generic approach how to integrate inside OpenShift's s2i build
 process or using Thamos CLI.
 
+For CLI (Command Line Interface) examples, visit `thoth-station/cli-examples
+<https://github.com/thoth-station/cli-examples>`__ repository.
+
 OpenShift s2i - Source-To-Image
 ===============================
 
