@@ -6,7 +6,7 @@ Thoth's TensorFlow stack guidance example
 This is an example of an application which uses Thoth's recommendations to
 recommend a TensorFlow stack for a specific hardware. The application is
 showing a generic approach how to integrate inside OpenShift's s2i build
-process or using Thamos CLI.
+process.
 
 OpenShift s2i - Source-To-Image
 ===============================
@@ -59,63 +59,3 @@ for more info on how to configure Thoth's client - "Thamos".
 
 See also build config present in this repo to see configuration options
 supplied to this s2i based Python application.
-
-Thamos CLI
-==========
-
-Another integration point for Thoth is `Thamos
-<https://pypi.org/project/thamos>`_. You can use Thoth's recommendation engine
-directly from within your terminal. First, you need to clone this repo and
-install Thamos CLI:
-
-.. code-block:: console
-
-  git clone https://github.com/thoth-station/s2i-example.git && cd s2i-example
-  pip3 install thamos
-  thamos --help
-
-The pre-configured template for Thamos CLI is available in the
-``.thoth.yaml`` file:
-
-.. code-block:: console
-
-  cat .thoth.yaml
-
-Alternatively, to generate Thoth's configuration file out of the template run the
-following command:
-
-.. code-block:: console
-
-  thamos config --no-interactive --template thoth_conf_template.yaml
-  cat .thoth.yaml  # to browse the content of the config file
-
-Now you are ready to ask for advises:
-
-.. code-block:: console
-
-  thamos advise
-
-This might take some time. Once Thoth recommends you the application stack to
-be used for running the application, create a Python environment and install
-requirements into it:
-
-.. code-block:: console
-
-  cat requirements.txt  # check requirements with digests
-  cat requirements.in   # check direct dependencies
-  python3 -m venv venv/
-  source venv/bin/activate
-  pip3 install -r requirements.txt
-
-And finally, run the application (the virtual environment needs to be still
-activated):
-
-.. code-block:: console
-
-  python3 ./app.py
-
-To browse Thoth's logs during or after the adviser run:
-
-.. code-block:: console
-
-  thamos log
