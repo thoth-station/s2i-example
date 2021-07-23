@@ -1,11 +1,11 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "2f354eaddecf43134b8d5a1609be109224aa91a1bfa02eb661d752046ed64bac"
+            "sha256": "9586ae5565025e7c1cfeb9bc89691854d7e637a2231cca7a295ea9b1b666db00"
         },
         "pipfile-spec": 6,
         "requires": {
-            "python_version": "3.6"
+            "python_version": "3.8"
         },
         "sources": [
             {
@@ -18,17 +18,18 @@
     "default": {
         "daiquiri": {
             "hashes": [
-                "sha256:0d5bf9c5719fbca4928dc2a882c165cd2b5c81be28f7f1626ced04c1c6b4aae2",
-                "sha256:236183ba51f35f4ae0e23fd20119d0fa082995c08d77bd562dbc00ea8f504bf6"
+                "sha256:1df8f03a9a59d82108d7fc4c0e531f0d049191859eab3a6e22df13b46bf123f8",
+                "sha256:cbc4a1ffdd98f25bb1962f3d580d5225796196712849798cce40af85c412d5ab"
             ],
             "index": "pypi-org",
-            "version": "==2.1.1"
+            "version": "==3.0.0"
         },
         "python-json-logger": {
             "hashes": [
-                "sha256:b7a31162f2a01965a5efb94453ce69230ed208468b0bbc7fdfc56e6d8df2e281"
+                "sha256:f26eea7898db40609563bed0a7ca11af12e2a79858632706d835a0f961b7d398"
             ],
-            "version": "==0.1.11"
+            "markers": "python_version >= '3.4'",
+            "version": "==2.0.1"
         }
     },
     "develop": {}
