@@ -8,7 +8,7 @@ metadata:
     openshift.io/provider-display-name: "Red Hat, Inc."
     description: |-
       An example application integrating OpenShift's s2i with Thoth's recommendation engine for Python stack.
-    version: 0.2.0
+    version: 0.3.0
     tags: thoth,openshift,s2i,python
     iconClass: icon-python
   labels:
@@ -53,7 +53,7 @@ objects:
         sourceStrategy:
           from:
             kind: ImageStreamTag
-            name: "s2i-thoth-ubi8-py36:latest"
+            name: "s2i-thoth-ubi8-py38:latest"
           env:
             # Enable Pipenv in OpenShift's s2i.
             - name: "ENABLE_PIPENV"
@@ -72,7 +72,7 @@ objects:
             # .thoth.yaml file is generated from template file
             # thoth_conf_template.yaml
             - name: "THAMOS_CONFIG_TEMPLATE"
-              value: "thoth_conf_template.yaml"
+              value: "/tmp/src/thoth_conf_template.yaml"
             # Enable expansion based on environment variables when generating
             # .thoth.yaml file - this needs to be explictly turned on due to
             # possible security implications.
@@ -161,12 +161,12 @@ objects:
     metadata:
       labels:
         app: "s2i-example-log"
-      name: "s2i-thoth-ubi8-py36"
+      name: "s2i-thoth-ubi8-py38"
     spec:
       tags:
         - name: "latest"
           from:
             kind: "DockerImage"
-            name: "quay.io/thoth-station/s2i-thoth-ubi8-py36"
+            name: "quay.io/thoth-station/s2i-thoth-ubi8-py38:v0.31.0"
           referencePolicy:
             type: "Source"

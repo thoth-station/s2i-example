@@ -37,10 +37,10 @@ If you are trying the kata-coda tutorial and have already forked the repo -
   oc project <YOUR-PROJECT-NAME>
   oc process -f https://raw.githubusercontent.com/<your-github-username>/s2i-example/log-thoth/openshift.yaml | oc apply -f -
 
-The BuildConfig is using UBI8 Pythpn 3.6 to build the application.
+The BuildConfig is using UBI8 Pythpn 3.8 to build the application.
 
 Once the templates get applied, a build is started. As the build is
-configuration to ask Thoth for advises, Thoth is contacted (see
+configured to ask Thoth for advises, Thoth is contacted (see
 ``thoth_conf_template.yaml`` configuration file for info on configuration
 options).
 
