@@ -3,10 +3,10 @@ tls_verify: true
 requirements_format: pip
 
 runtime_environments:
-  - name: '{os_name}:{os_version}'
+  - name: '{os_name}{os_version}'
     operating_system:
       name: '{os_name}'
-      version: '{os_name}'
+      version: '{os_version}'
     hardware:
       cpu_family: {cpu_family}
       cpu_model: {cpu_model}

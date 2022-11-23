@@ -3,7 +3,7 @@ tls_verify: true
 requirements_format: pip
 
 runtime_environments:
-  - name: 'ubi:8'
+  - name: 'ubi8'
     operating_system:
       name: 'ubi'
       version: '8'

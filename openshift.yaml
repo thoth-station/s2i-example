@@ -8,7 +8,7 @@ metadata:
     openshift.io/provider-display-name: "Red Hat, Inc."
     description: |-
       An example application integrating OpenShift's s2i with Thoth's recommendation engine for TensorFlow stack.
-    version: 0.2.0
+    version: 0.3.0
     tags: thoth,openshift,s2i,python
     iconClass: icon-python
   labels:
@@ -87,6 +87,9 @@ objects:
             # Consider also development dependencies stated in the lock file.
             - name: "THAMOS_DEV"
               value: "0"
+            # Consider overlays directory for thoth recommend stack.
+            - name: "THAMOS_RUNTIME_ENVIRONMENT"
+              value: ""
       triggers:
         - type: ImageChange
           imageChange: {}
