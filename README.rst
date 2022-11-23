@@ -29,7 +29,7 @@ To deploy this application to OpenShift:
   oc project <YOUR-PROJECT-NAME>
   oc process -f https://raw.githubusercontent.com/thoth-station/s2i-example/master/openshift.yaml | oc apply -f -
 
-The BuildConfig is using Fedora 31 Python 3.7 as a base for the application.
+The BuildConfig is using UBI 8 Python 3.6 as a base for the application.
 
 Once the templates get applied, a build is started. As the build is configured
 to ask Thoth for advises, Thoth is contacted (see ``thoth_conf_template.yaml``
