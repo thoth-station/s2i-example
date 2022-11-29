@@ -1,0 +1,17 @@
+# See the OWNERS docs at https://go.k8s.io/owners
+
+approvers:
+  - codificat
+  - goern
+  - harshad16
+  - kpostoffice
+  - mayaCostantini
+  - VannTen
+
+reviewers:
+  - codificat
+  - goern
+  - harshad16
+  - kpostoffice
+  - mayaCostantini
+  - VannTen
