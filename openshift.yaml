@@ -8,7 +8,7 @@ metadata:
     openshift.io/provider-display-name: "Red Hat, Inc."
     description: |-
       An example application integrating OpenShift's s2i with Thoth's recommendation engine for TensorFlow stack.
-    version: 0.2.0
+    version: 0.3.0
     tags: thoth,openshift,s2i,python
     iconClass: icon-python
   labels:
@@ -54,7 +54,7 @@ objects:
         sourceStrategy:
           from:
             kind: ImageStreamTag
-            name: "s2i-thoth-ubi8-py36:latest"
+            name: "s2i-thoth-ubi8-py38:latest"
           env:
             # Enable Pipenv in OpenShift's s2i.
             - name: "ENABLE_PIPENV"
@@ -159,12 +159,12 @@ objects:
     metadata:
       labels:
         app: "s2i-example-tensorflow"
-      name: "s2i-thoth-ubi8-py36"
+      name: "s2i-thoth-ubi8-py38"
     spec:
       tags:
         - name: "latest"
           from:
             kind: "DockerImage"
-            name: "quay.io/thoth-station/s2i-thoth-ubi8-py36"
+            name: "quay.io/thoth-station/s2i-thoth-ubi8-py38"
           referencePolicy:
             type: "Source"
