@@ -12,4 +12,3 @@ runtime_environments:
       cpu_model: 142
     python_version: '3.6'
     recommendation_type: stable
-
