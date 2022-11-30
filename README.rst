@@ -31,7 +31,7 @@ To deploy this application to OpenShift:
   oc project <YOUR-PROJECT-NAME>
   oc process -f https://raw.githubusercontent.com/thoth-station/s2i-example/hello-thoth/openshift.yaml | oc apply -f -
 
-The BuildConfig is using UBI8 Pythpn 3.6 to build the application.
+The BuildConfig is using UBI8 Pythpn 3.8 to build the application.
 
 Once the templates get applied, a build is started. As the build is
 configuration to ask Thoth for advises, Thoth is contacted (see
@@ -60,7 +60,7 @@ To remove this application from OpenShift:
 
 .. code-block:: console
 
-  oc delete all --selector 'app=s2i-example-tensorflow'
+  oc delete all --selector 'app=s2i-example-cowsay'
 
 
 Using Thoth in your s2i builds

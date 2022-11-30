@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "b67d32271c1e145dc0e24740693f6d5205e18188c4e797131ac9fe2fecb6043f"
+            "sha256": "860b9389a5af8e82d588e6cc9e50d80712e3554791cf93ea54b8475ec2cc3ee6"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -18,10 +18,10 @@
     "default": {
         "cowsay": {
             "hashes": [
-                "sha256:c00e02444f5bc7332826686bd44d963caabbaba9a804a63153822edce62bbbf3"
+                "sha256:93bf7695c179ff8c93ea5cb1d0d4a895c30c6756087da8cb1deb4165f4fc8c24"
             ],
             "index": "pypi",
-            "version": "==5.0"
+            "version": "==1.0"
         }
     },
     "develop": {}

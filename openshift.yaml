@@ -1,19 +1,19 @@
 apiVersion: template.openshift.io/v1
 kind: Template
 metadata:
-  name: s2i-example-tensorflow
+  name: s2i-example-cowsay
   annotations:
-    openshift.io/display-name: "Thoth S2I Example TensorFlow"
-    openshift.io/documentation-url: "https://github.com/thoth-station/s2i-example-tensorflow"
+    openshift.io/display-name: "Thoth S2I Example cowsay"
+    openshift.io/documentation-url: "https://github.com/thoth-station/s2i-example"
     openshift.io/provider-display-name: "Red Hat, Inc."
     description: |-
-      An example application integrating OpenShift's s2i with Thoth's recommendation engine for TensorFlow stack.
+      An example application integrating OpenShift's s2i with Thoth's recommendation engine for cowsay stack.
     version: 0.3.0
     tags: thoth,openshift,s2i,python
     iconClass: icon-python
   labels:
-    template: s2i-example-tensorflow
-    app: "s2i-example-tensorflow"
+    template: s2i-example-cowsay
+    app: "s2i-example-cowsay"
 
 parameters:
   - description: "Thoth Environment to use for retrieving advices."
@@ -27,9 +27,9 @@ objects:
   - kind: BuildConfig
     apiVersion: v1
     metadata:
-      name: "s2i-example-tensorflow"
+      name: "s2i-example-cowsay"
       labels:
-        app: "s2i-example-tensorflow"
+        app: "s2i-example-cowsay"
     spec:
       successfulBuildsHistoryLimit: 1
       failedBuildsHistoryLimit: 2
@@ -43,7 +43,7 @@ objects:
       output:
         to:
           kind: ImageStreamTag
-          name: "s2i-example-tensorflow:latest"
+          name: "s2i-example-cowsay:latest"
       source:
         type: Git
         git:
@@ -110,8 +110,8 @@ objects:
     apiVersion: v1
     metadata:
       labels:
-        app: "s2i-example-tensorflow"
-      name: "s2i-example-tensorflow"
+        app: "s2i-example-cowsay"
+      name: "s2i-example-cowsay"
     spec:
       replicas: 1
       selector:
@@ -122,7 +122,7 @@ objects:
             service: "s2i-example-thoth"
         spec:
           containers:
-            - name: "s2i-example-tensorflow"
+            - name: "s2i-example-cowsay"
               ports:
                 - containerPort: 8080
                   protocol: TCP
@@ -140,25 +140,25 @@ objects:
           imageChangeParams:
             automatic: true
             containerNames:
-              - "s2i-example-tensorflow"
+              - "s2i-example-cowsay"
             from:
               kind: ImageStreamTag
-              name: "s2i-example-tensorflow:latest"
+              name: "s2i-example-cowsay:latest"
 
   - apiVersion: "image.openshift.io/v1"
     kind: ImageStream
     metadata:
       labels:
-        app: "s2i-example-tensorflow"
-      name: "s2i-example-tensorflow"
+        app: "s2i-example-cowsay"
+      name: "s2i-example-cowsay"
     spec:
-      name: "s2i-example-tensorflow"
+      name: "s2i-example-cowsay"
 
   - apiVersion: "image.openshift.io/v1"
     kind: ImageStream
     metadata:
       labels:
-        app: "s2i-example-tensorflow"
+        app: "s2i-example-cowsay"
       name: "s2i-thoth-ubi8-py38"
     spec:
       tags:
